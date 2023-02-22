@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vídeo com senha</title>
+    <style>
+        body {
+            background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 50px;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-top: 20px;
+            font-size: 20px;
+        }
+
+        input[type="password"] {
+            padding: 10px;
+            font-size: 20px;
+        }
+
+        button {
+            padding: 10px 30px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 20px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        video {
+            margin-top: 50px;
+            max-width: 80%;
+            display: none;
+            margin: 0 auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .error {
+            color: red;
+            font-size: 18px;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Vídeo Protegido por Senha</h1>
+
+    <label for="password">Digite a senha para assistir ao vídeo:</label>
+    <input type="password" id="password">
+    <button classe="button" id="submit-button">Assistir</button>
+
+    <video classe="video" id="video" controls>
+        <source src="C:\Users\Edu_a\Desktop\Projetos VsCode\Quizz senha\EU TE AMO.mp4" type="video/mp4">
+        Seu navegador não suporta o elemento de vídeo.
+    </video>
+
+    <p class="error" id="error-message">Senha incorreta. Tente novamente.</p>
+
+    <script>
+        const passwordInput = document.getElementById('password');
+        const submitButton = document.getElementById('submit-button');
+        const video = document.getElementById('video');
+        const errorMessage = document.getElementById('error-message');
+
+        submitButton.addEventListener('click', function () {
+            const password = passwordInput.value;
+            if (password === '52314') {
+                video.style.display = 'block';
+                errorMessage.style.display = 'none';
+            } else {
+                video.style.display = 'none';
+                errorMessage.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+
+</html>
